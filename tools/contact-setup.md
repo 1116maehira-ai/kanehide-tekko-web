@@ -6,13 +6,14 @@ GitHub Pagesの静的フォームをFormSubmitへHTTPS POSTします。メール
 
 - 主宛先: shuya.sakihama@kanehide.co.jp
 - CC: haruka.kiyuna@kanehide.co.jp / ya-miyagi@kanehide.co.jp / i-isiki@kanehide.co.jp
+- テスト確認用CC: 1116maehira@gmail.com
 
 ## 運用開始前の作業
 
 1. 先方へFormSubmit利用と認証メールの承認を依頼する。
 2. 公開フォームで、先方と調整したテストの内容を入力し送信する。認証画面を完了する。
 3. 主宛先に届くFormSubmitの認証メールで承認する。迷惑メールも確認する。認証前のテスト内容が問い合わせとして配送されるとは扱わない。
-4. 再度テスト送信し、受付ページへの遷移と4名全員の受信を確認する。
+4. 再度テスト送信し、受付ページへの遷移と先方4名と前平さんの計5名の受信を確認する。
 5. 返信操作の宛先が入力者のメールアドレスになっているか確認する。
 6. 公式ドメインへ接続後も、新URLで認証と受信を確認する。
 
