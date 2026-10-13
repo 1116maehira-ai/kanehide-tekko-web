@@ -1,0 +1,6 @@
+import {sqliteTable,text,integer,index} from 'drizzle-orm/sqlite-core';
+export const posts=sqliteTable('posts',{
+ id:text('id').primaryKey(),title:text('title').notNull(),kind:text('kind').notNull(),category:text('category').notNull(),division:text('division'),status:text('status').notNull(),publishedAt:text('published_at').notNull(),excerpt:text('excerpt').notNull(),content:text('content').notNull(),cover:text('cover').notNull(),project:text('project').notNull(),sourceUrl:text('source_url').notNull(),migrationStatus:text('migration_status').notNull(),legacyIndex:integer('legacy_index'),revision:integer('revision').notNull().default(1),createdAt:text('created_at').notNull(),updatedAt:text('updated_at').notNull(),updatedBy:text('updated_by').notNull()
+},t=>[index('posts_status_date').on(t.status,t.publishedAt),index('posts_division_status').on(t.division,t.status)]);
+export const media=sqliteTable('media',{id:text('id').primaryKey(),mime:text('mime').notNull(),name:text('name').notNull(),createdAt:text('created_at').notNull(),owner:text('owner').notNull()});
+export const revisions=sqliteTable('revisions',{id:text('id').primaryKey(),postId:text('post_id').notNull(),snapshot:text('snapshot').notNull(),createdAt:text('created_at').notNull(),actor:text('actor').notNull()});

@@ -1,0 +1,1 @@
+(()=>{const rewrite=()=>document.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');const m=href.match(/^news\.html#post-(.+)$/);if(m&&STATIC_POST_FILES[m[1]])a.setAttribute('href',STATIC_POST_FILES[m[1]]);});rewrite();new MutationObserver(rewrite).observe(document.getElementById('main'),{childList:true,subtree:true});})();

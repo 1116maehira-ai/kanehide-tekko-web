@@ -1,0 +1,7 @@
+{
+  "database": "Cloudflare D1",
+  "checked": "2026-10-13",
+  "databasePostRows": 0,
+  "seedPosts": 21,
+  "fullLegacyMigrationComplete": false
+}
