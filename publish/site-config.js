@@ -1,1 +1,1 @@
-window.KANEHIDE_CONFIG={"contactProvider":"formsubmit","contactEndpoint":"https://formsubmit.co/1116maehira@gmail.com","recipients":["1116maehira@gmail.com","shuya.sakihama@kanehide.co.jp","haruka.kiyuna@kanehide.co.jp","ya-miyagi@kanehide.co.jp","i-isiki@kanehide.co.jp"]};
+window.KANEHIDE_CONFIG={"contactProvider":"original-google-apps-script","contactEndpoint":"https://kanehide-steel-review-oct10.neon-stork-9611.chatgpt.site/api/contact"};

@@ -1,34 +1,30 @@
 # 金秀鉄工 Webサイト
 
-ローカルで確認済みの静的公開データと元ソースを格納しています。
-
-- `publish/`: GitHub Pagesで公開するサイト
+- `publish/`: GitHub Pages公開データ
 - `source-original/`: 元ソース
-- `data-backup/`: 記事データのバックアップ
-- `tools/`: 静的書き出し・SEO設定
+- `data-backup/`: 記事バックアップ
+- `tools/`: 書き出し・SEO・フォーム設定
 - `README.html`: 詳細な説明
 
 ## 公開
 
-Settings → Pages → Build and deployment → Source を **GitHub Actions** に設定してください。公開ワークフローは `.github/workflows/pages.yml` です。公開するディレクトリは `publish/` です。
+Settings → Pages → Source は GitHub Actions。公開対象は `publish/` です。
 
-大容量の社員インタビュー動画は `asset-parts/` に分割して保存し、公開ワークフローが自動復元します。復元時にSHA-256を照合します。画質・内容は元動画と同一です。
+大容量の社員インタビュー動画は `asset-parts/` に分割して保存しています。公開ワークフローが自動復元し、SHA-256を照合します。
 
 ## ローカル確認
-
-リポジトリをダウンロードまたはcloneしたら、最初に以下を実行してください。
 
 ```sh
 python3 tools/restore-assets.py
 python3 -m http.server 8000 --directory publish
 ```
 
-ブラウザで http://localhost:8000 を開いてください。先にお渡ししたZIPは復元済みのため、この復元手順は不要です。
+http://localhost:8000 を開いてください。
 
-## 現在の状態
+## お問い合わせ
 
-お問い合わせはFormSubmitへPOSTする方式です。主宛先での初回認証と先方4名とテスト確認用CC（1116maehira@gmail.com）の計5名の受信確認は未実施です。運用開始前の手順は [tools/contact-setup.md](tools/contact-setup.md) を参照してください。CMS・データベース開発は引き続き待機しています。記事バックアップは21件で、旧サイトの全記事本文の完全移行は未完了です。SEOの正規URLは今後接続する `https://kanehide-tekko.co.jp` を設定しています。
+元サイトの `/api/contact` と、元の `CONTACT_FORM_ENDPOINT` に設定済みのGoogle Apps Scriptを再利用します。送信APIは既存Sitesサーバー上で実行し、GitHub Pagesから接続します。新しいフォームサービスや有料契約は使用しません。実際の受信は未確認です。メールの受信先はGoogle Apps Script側で管理するため、テスト用Gmailの追加にはその設定確認が必要です。[接続の説明](tools/contact-setup.md)を参照してください。
 
-## 送信テストの宛先（2026-10-13）
+## 残る開発
 
-初回認証を前平さん側で行えるよう、テスト中は `1116maehira@gmail.com` を主宛先、先方4名をCCに設定しています。前平さんのGmailでFormSubmit認証メールを承認してから再送信し、全5名への配送を確認してください。実際の認証・配送は未確認です。本番運用前に先方を主宛先へ戻し、再認証・受信確認を行います。
+CMS・データベース開発は待機しています。記事バックアップは21件で、旧サイトの全記事本文の完全移行は未完了です。SEOの正規URLは `https://kanehide-tekko.co.jp` です。
