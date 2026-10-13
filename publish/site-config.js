@@ -1,1 +1,1 @@
-window.KANEHIDE_CONFIG={"contactProvider":"formsubmit","contactEndpoint":"https://formsubmit.co/shuya.sakihama@kanehide.co.jp","recipients":["shuya.sakihama@kanehide.co.jp","haruka.kiyuna@kanehide.co.jp","ya-miyagi@kanehide.co.jp","i-isiki@kanehide.co.jp","1116maehira@gmail.com"]};
+window.KANEHIDE_CONFIG={"contactProvider":"formsubmit","contactEndpoint":"https://formsubmit.co/1116maehira@gmail.com","recipients":["1116maehira@gmail.com","shuya.sakihama@kanehide.co.jp","haruka.kiyuna@kanehide.co.jp","ya-miyagi@kanehide.co.jp","i-isiki@kanehide.co.jp"]};

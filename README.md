@@ -28,3 +28,7 @@ python3 -m http.server 8000 --directory publish
 ## 現在の状態
 
 お問い合わせはFormSubmitへPOSTする方式です。主宛先での初回認証と先方4名とテスト確認用CC（1116maehira@gmail.com）の計5名の受信確認は未実施です。運用開始前の手順は [tools/contact-setup.md](tools/contact-setup.md) を参照してください。CMS・データベース開発は引き続き待機しています。記事バックアップは21件で、旧サイトの全記事本文の完全移行は未完了です。SEOの正規URLは今後接続する `https://kanehide-tekko.co.jp` を設定しています。
+
+## 送信テストの宛先（2026-10-13）
+
+初回認証を前平さん側で行えるよう、テスト中は `1116maehira@gmail.com` を主宛先、先方4名をCCに設定しています。前平さんのGmailでFormSubmit認証メールを承認してから再送信し、全5名への配送を確認してください。実際の認証・配送は未確認です。本番運用前に先方を主宛先へ戻し、再認証・受信確認を行います。

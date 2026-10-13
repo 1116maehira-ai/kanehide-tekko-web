@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const recipients = ['shuya.sakihama@kanehide.co.jp', 'haruka.kiyuna@kanehide.co.jp', 'ya-miyagi@kanehide.co.jp', 'i-isiki@kanehide.co.jp', '1116maehira@gmail.com'];
+const recipients = ['1116maehira@gmail.com', 'shuya.sakihama@kanehide.co.jp', 'haruka.kiyuna@kanehide.co.jp', 'ya-miyagi@kanehide.co.jp', 'i-isiki@kanehide.co.jp'];
 const endpoint = 'https://formsubmit.co/' + recipients[0];
 const intro = '下記フォームへ必要事項をご入力ください。送信時に迷惑メール対策の確認画面へ移動します。担当者が内容を確認し、折り返しご連絡いたします。';
 const consent = '入力内容をお問い合わせへの回答に利用すること、および外部フォームサービス（FormSubmit）を通じて送信することに同意します。';
@@ -40,6 +40,7 @@ function updateMarkup(text){
  text=text.replaceAll('入力内容を確認し、個人情報をお問い合わせへの回答に利用することに同意します。',consent);
  text=text.replace('<form id="contact-form" class="contact-form" novalidate>',`<form id="contact-form" class="contact-form" method="POST" action="${endpoint}">${fields}`);
  text=text.replace(/(<input type="hidden" name="_cc" value=")[^"]*/g, '$1'+recipients.slice(1).join(','));
+ text=text.replace(/(<form id="contact-form"[^>]*action=")[^"]*/g, '$1'+endpoint);
  text=text.replaceAll('name="website"','name="_honey"');
  return text;
 }
@@ -52,7 +53,7 @@ export function configureContact(root){
  app=updateMarkup(app.slice(0,start)+handler+app.slice(end));
  fs.writeFileSync(path.join(pub,'app.js'),app);
  fs.writeFileSync(path.join(pub,'site-config.js'),'window.KANEHIDE_CONFIG='+JSON.stringify({contactProvider:'formsubmit',contactEndpoint:endpoint,recipients})+';\n');
- const contact=updateMarkup(fs.readFileSync(path.join(pub,'contact.html'),'utf8'));
+ const contact=updateMarkup(fs.readFileSync(path.join(pub,'contact.html'),'utf8')).replace(/src="(app|site-config)\.js(?:\?[^"]*)?"/g,'src="$1.js?contact=20261013-maehira"');
  fs.writeFileSync(path.join(pub,'contact.html'),contact);
  let thanks=contact.replace(/<title>[\s\S]*?<\/title>/,'<title>お問い合わせ受付｜金秀鉄工株式会社</title>')
   .replace(/<meta name="robots"[^>]*>/,'<meta name="robots" content="noindex,follow">')
@@ -63,7 +64,7 @@ export function configureContact(root){
   .replace(/(<meta property="og:title" content=")[^"]*/,'$1お問い合わせ受付｜金秀鉄工株式会社');
  fs.writeFileSync(path.join(pub,'contact-thanks.html'),thanks);
  const readme=path.join(root,'README.html');
- if(fs.existsSync(readme))fs.writeFileSync(readme,fs.readFileSync(readme,'utf8').replace(/<h2>3\. お問い合わせ<\/h2>[\s\S]*?<h2>4\./,'<h2>3. お問い合わせ</h2><p>FormSubmitを通じてWebフォームから送信します。主宛先1名＋先方CC3名＋テスト確認用CC1名の計5名です。認証画面の後、受付ページへ移動します。主宛先で初回認証メールの承認が必要です。認証と4名の受信確認が完了するまでは運用開始しないでください。実際の送信・受信テストは未実施です。ドメイン変更時も再認証・受信確認を行ってください。秘密鍵は不要です。詳細は tools/contact-setup.md を参照してください。</p><h2>4.'));
+ if(fs.existsSync(readme))fs.writeFileSync(readme,fs.readFileSync(readme,'utf8').replace(/<h2>3\. お問い合わせ<\/h2>[\s\S]*?<h2>4\./,'<h2>3. お問い合わせ</h2><p>FormSubmitを通じてWebフォームから送信します。テスト中は前平さん（1116maehira@gmail.com）が主宛先、先方4名がCCの計5名です。認証画面の後、受付ページへ移動します。主宛先で初回認証メールの承認が必要です。認証と4名の受信確認が完了するまでは運用開始しないでください。実際の送信・受信テストは未実施です。ドメイン変更時も再認証・受信確認を行ってください。秘密鍵は不要です。詳細は tools/contact-setup.md を参照してください。</p><h2>4.'));
 }
 
 if(process.argv[1]&&pathToFileURL(path.resolve(process.argv[1])).href===import.meta.url)configureContact(path.resolve(process.argv[2]||path.join(path.dirname(process.argv[1]),'..')));

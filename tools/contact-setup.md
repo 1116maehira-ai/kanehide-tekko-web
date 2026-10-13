@@ -2,15 +2,16 @@
 
 GitHub Pagesの静的フォームをFormSubmitへHTTPS POSTします。メールアプリの起動は不要です。サーバー側の認証画面はFormSubmitの標準reCAPTCHAを利用し、無効化していません。
 
-## 受信先
+## テスト中の受信先
 
-- 主宛先: shuya.sakihama@kanehide.co.jp
-- CC: haruka.kiyuna@kanehide.co.jp / ya-miyagi@kanehide.co.jp / i-isiki@kanehide.co.jp
-- テスト確認用CC: 1116maehira@gmail.com
+- 主宛先: 1116maehira@gmail.com（前平さんが初回認証を実施）
+- CC: shuya.sakihama@kanehide.co.jp / haruka.kiyuna@kanehide.co.jp / ya-miyagi@kanehide.co.jp / i-isiki@kanehide.co.jp
+
+先方4名の受信先は残しています。テスト送信も先方へCCされます。本番では主宛先を先方に戻し、新しい主宛先で認証と受信確認を行います。
 
 ## 運用開始前の作業
 
-1. 先方へFormSubmit利用と認証メールの承認を依頼する。
+1. 前平さんのGmailでFormSubmitの初回認証メールを承認する準備をする。
 2. 公開フォームで、先方と調整したテストの内容を入力し送信する。認証画面を完了する。
 3. 主宛先に届くFormSubmitの認証メールで承認する。迷惑メールも確認する。認証前のテスト内容が問い合わせとして配送されるとは扱わない。
 4. 再度テスト送信し、受付ページへの遷移と先方4名と前平さんの計5名の受信を確認する。
