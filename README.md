@@ -27,4 +27,4 @@ python3 -m http.server 8000 --directory publish
 
 ## 現在の状態
 
-お問い合わせは現在メールアプリを開く方式です。サーバー側送信とCMS・データベース開発は別途対応します。記事バックアップは21件で、旧サイトの全記事本文の完全移行は未完了です。SEOの正規URLは今後接続する `https://kanehide-tekko.co.jp` を設定しています。
+お問い合わせはFormSubmitへPOSTする方式です。主宛先での初回認証と4名の受信確認は未実施です。運用開始前の手順は [tools/contact-setup.md](tools/contact-setup.md) を参照してください。CMS・データベース開発は引き続き待機しています。記事バックアップは21件で、旧サイトの全記事本文の完全移行は未完了です。SEOの正規URLは今後接続する `https://kanehide-tekko.co.jp` を設定しています。

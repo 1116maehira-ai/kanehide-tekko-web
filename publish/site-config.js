@@ -1,1 +1,1 @@
-window.KANEHIDE_CONFIG={contactEndpoint:'',recipients:['shuya.sakihama@kanehide.co.jp','haruka.kiyuna@kanehide.co.jp','ya-miyagi@kanehide.co.jp','i-isiki@kanehide.co.jp']};
+window.KANEHIDE_CONFIG={"contactProvider":"formsubmit","contactEndpoint":"https://formsubmit.co/shuya.sakihama@kanehide.co.jp","recipients":["shuya.sakihama@kanehide.co.jp","haruka.kiyuna@kanehide.co.jp","ya-miyagi@kanehide.co.jp","i-isiki@kanehide.co.jp"]};
